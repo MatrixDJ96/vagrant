@@ -93,11 +93,6 @@ module VagrantPlugins
           @logger.warn("Skipping UID check on machine by user request for WSL Windows access.")
         else
           uid = @machine.uid
-          if uid && uid.to_s != Process.uid.to_s
-            raise Vagrant::Errors::VirtualBoxUserMismatch,
-              original_uid: uid.to_s,
-              uid: Process.uid.to_s
-          end
         end
 
         # Determine the ID of the state here.
