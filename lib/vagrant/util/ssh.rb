@@ -31,7 +31,7 @@ module Vagrant
       def self.check_key_permissions(key_path)
         # Don't do anything if we're on Windows, since Windows doesn't worry
         # about key permissions.
-        return if Platform.windows? || Platform.wsl_windows_access_bypass?(key_path)
+        return true
 
         LOGGER.debug("Checking key permissions: #{key_path}")
         stat = key_path.stat
